@@ -1,7 +1,3 @@
 # Links
 
-links archive.
-
-## Dependencies
-
-- bubbletea
+links archive using microservices architecture.
