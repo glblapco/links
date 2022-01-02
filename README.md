@@ -11,6 +11,15 @@ Why make GUIs when you can just use `cURL` and `jq`?
 
 ### With Docker
 
+The docker container is not published anywhere yet. Those steps are to
+build and run the container. When the container is published, the steps will
+be:
+
+1. `$ docker pull b-ap/links:1.0`
+2. `$ docker run -p 8000:8000 b-ap/links:1.0`
+
+For now, they are:
+
 1. Clone this repository.
 2. `$ docker build -t b-ap/links:1.0 .`
 3. `$ docker images | grep links`
