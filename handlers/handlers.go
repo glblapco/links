@@ -26,8 +26,26 @@ func list(rw http.ResponseWriter, req *http.Request) {
 }
 
 func add(rw http.ResponseWriter, req *http.Request) {
-	readReq, err := ioutil.ReadAll(req.Body)
+	readReq, _ := ioutil.ReadAll(req.Body)
 
+	var link models.Link
+	err := json.Unmarshal(readReq, &link)
+
+	if err != nil || link.Title == "" || link.Url == "" {
+		rw.WriteHeader(400)
+		rw.Write([]byte("Bad Request"))
+		return
+	}
+
+	link.ID = repository.AddLink(link)
+
+	rw.Header().Add("Content-Type", "application/json")
+	rw.WriteHeader(201)
+
+	json, _ := json.Marshal(link)
+	rw.Write(json)
+
+	log.Println("Response: ", 201)
 }
 
 func HandleRequest(rw http.ResponseWriter, req *http.Request) {
