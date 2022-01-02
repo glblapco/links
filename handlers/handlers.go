@@ -37,7 +37,7 @@ func add(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	link.ID = repository.AddLink(link)
+	link.ID = repository.AddLinks(link)
 
 	rw.Header().Add("Content-Type", "application/json")
 	rw.WriteHeader(201)
@@ -49,7 +49,7 @@ func add(rw http.ResponseWriter, req *http.Request) {
 }
 
 func HandleRequest(rw http.ResponseWriter, req *http.Request) {
-	log.Println("Request received: ". req.Method)
+	log.Println("Request received: ", req.Method)
 
 	switch req.Method {
 		case http.MethodGet:
