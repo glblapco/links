@@ -3,7 +3,7 @@
 Links archive using microservices architecture.
 For now it doesn't store data in a database, you can store your links locally piping the response to a file.
 
-![links demo](/static/linksDemo.png)
+![links demo image](/static/linksDemo.png)
 
 ## Usage.
 
