@@ -1,6 +1,6 @@
 # Links
 
-Links archive using microservices architecture.
+Links archive.
 For now it doesn't store data in a database, you can store your links locally piping the response to a file.
 
 ![links demo image](/static/linksDemo.png)
