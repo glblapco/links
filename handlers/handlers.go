@@ -11,13 +11,23 @@ import (
 
 func list(rw http.ResponseWriter, req *http.Request) {
 	links := repository.GetLinks()
-	json, _ := json.Marshal(links)
+	json, err := json.Marshal(links)
+
+	if err != nil {
+		log.Println(err)
+		return
+	}
 
 	rw.Header().Add("Content-Type", "application/json")
 	rw.WriteHeader(200)
 	rw.Write(json)
 
 	log.Println("Response: ", 200)
+}
+
+func add(rw http.ResponseWriter, req *http.Request) {
+	readReq, err := ioutil.ReadAll(req.Body)
+
 }
 
 func HandleRequest(rw http.ResponseWriter, req *http.Request) {
