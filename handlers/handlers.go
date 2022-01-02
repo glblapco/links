@@ -9,6 +9,17 @@ import (
 	"proj/links/repository"
 )
 
+func list(rw http.ResponseWriter, req *http.Request) {
+	links := repository.GetLinks()
+	json, _ := json.Marshal(links)
+
+	rw.Header().Add("Content-Type", "application/json")
+	rw.WriteHeader(200)
+	rw.Write(json)
+
+	log.Println("Response: ", 200)
+}
+
 func HandleRequest(rw http.ResponseWriter, req *http.Request) {
 	log.Println("Request received: ". req.Method)
 
