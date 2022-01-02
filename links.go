@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"net/http"
+)
 
 func main() {
-	fmt.Println('links.')
+	err := http.ListenAndServe(":8000", nil)
+	if err != nil {
+		log.Println(err)
+		return
+	}
 }
