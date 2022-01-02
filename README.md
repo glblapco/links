@@ -14,7 +14,7 @@ Why make GUIs when you can just use `cURL` and `jq`?
 1. Clone this repository.
 2. `$ docker build -t b-ap/links:1.0 .`
 3. `$ docker images | grep links`
-4. `$ docker run -p 80:80 b-ap/links:1.0`
+4. `$ docker run -p 8000:8000 b-ap/links:1.0`
 5. `$ curl -X POST -H "Content-Type: application/json" -d '{"title": "b-ap website", "url": "b-ap.xyz"}' localhost:8000`
 6. You can also use `jq` to format the response:
 `$ curl -X POST -H "Content-Type: application/json" -d '{"title": "b-ap website", "url": "b-ap.xyz"}' localhost:8000 | jq`
