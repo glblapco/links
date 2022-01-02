@@ -10,4 +10,13 @@ import (
 var links []models.Link
 var nID = 1
 
-func GetLinks() []models.Link {}
+func GetLinks() []models.Link {
+	return links
+}
+
+func AddLinks(link models.Link) int {
+	link.ID = nID
+	nID++
+	links = append(links, link)
+	return link.ID
+}
